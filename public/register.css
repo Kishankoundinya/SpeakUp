@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #969696;
+    color: aliceblue;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(hrayr-movsisyan-pfhld_5yQrs-unsplash.jpg);
+     background-size: 100% 100%; /* covers 100% width and 50% height of container */
+  background-repeat: no-repeat;
+}
+.logo{
+    
+    margin: 10px;
+    text-align: left;
+    background-color: #00000044;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+.heading{
+    font-size: 3rem;
+}
+.signup{
+  width: 450px; /* or max-width: 400px; width: 90%; */
+  padding: 15px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin-right: 60px;
+  border-radius: 10px;
+  background: rgba(198, 198, 198, 0.227);
+   box-shadow: 
+    4px 4px 4px rgba(255, 255, 255, 0.406),
+    4px 4px 8px rgba(255, 60, 60, 0.424);
+    border: 2px solid white;
+    text-align: start;
+}
+.main{
+    height: 89vh;
+    width: 100vw;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.input{
+    height: 30px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.head{
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+.btn{
+    height: 40px;
+    width: 80%;
+    background-color: #4190ff;
+    color: aliceblue;
+    border-radius: 10px;
+}
+.anchor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.abtn{
+    color: aliceblue;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+}
+form{
+    width: 80%;
+}
+
+ @media (max-width: 768px) {
+    .main{
+         display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .signup{
+        margin: auto;
+    }
+
+ }

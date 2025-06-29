@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%-user.Username%></title>
+    <link rel="stylesheet" href="/profile.css">
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <h1 class="logo">Speakup</h1>
+        </div>
+
+        <div class="right">
+            <details>
+                <summary>
+                    <img class="userimg" src="/user.png" alt="User">
+
+                </summary>
+                <div class="menu-options">
+                    <div class="menu-option">
+
+                        <span><a class="menu-anchor" href="/new">create post</a></span>
+                    </div>
+                    <div class="menu-option">
+
+                        <span><a class="menu-anchor" href="/dashboard">Dashboard</a></span>
+                    </div>
+                    <div class="menu-option">
+
+                        <span><a class="menu-anchor" href="/logout">Logout</a></span>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </nav>
+    <div class="details">
+        <div class="profile-pic">
+            <img class="profile-img" src="/user.png" alt="">
+        </div>
+        <div class="profile-info">
+            <h1><%-user.Username%></h1>
+            <h4>
+                <%=user.Name%>
+            </h4>
+            <div class="follow-details">
+                <h3>Followers:238</h3>
+                <h3>Following:238</h3>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <div class="my-voices-heading">
+        <h1>My voices</h1>
+    </div>
+    <div class="posts">
+        <% for(post of posts){ %>
+            <div class="post">
+                <div class="top-section">
+                <div class="controls">
+                    
+                        <h3 class="date">Posted on:17/06/2025</h3>
+                        <details>
+                            <summary>
+                                <h1 class="dot">•••</h1>
+
+                            </summary>
+                            <div class="menu-options">
+                                
+                                <div class="menu-option">
+
+                                    <span><a class="menu-anchor" href="http://localhost:3000/post/<%=post._id%>/edit">Edit
+                                            Voices</a></span>
+                                </div>
+                                <div class="menu-option">
+
+                                    <form method="POST" action="/post/<%= post._id %>?_method=DELETE">
+                                        <button class="Delete-btn">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </details>
+                    
+                </div>
+                <hr>
+                <hr>
+                </div>
+
+                <div class="content">
+                    <h4>
+                        <%= post.content%>
+                    </h4>
+                </div>
+                <div class="bottom-section">
+                <a class="userbtn" href="http://localhost:3000/post/<%=post._id%>">View Voice</a>
+                </div>
+
+            </div>
+
+            <%}%>
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuOptions = document.querySelector('.menu-options');
+            if (menuOptions) {
+                menuOptions.addEventListener('click', function (e) {
+                    if (e.target.closest('.menu-option')) {
+                        const option = e.target.closest('.menu-option').textContent.trim();
+                        if (option === 'Profile') {
+                            // Add your profile action here
+                            console.log('Profile clicked');
+                        } else if (option === 'Logout') {
+                            // Add your logout action here
+                            console.log('Logout clicked');
+                        }
+                    }
+                });
+            }
+        });
+        const userimg = document.querySelector(".userimg");
+        userimg.addEventListener('dblclick', () => {
+            window.location.href = '/dashboard'
+        })
+    </script>
+</body>
+
+</html>

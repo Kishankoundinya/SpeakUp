@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit voices</title>
+    <link rel="stylesheet" href="/edit.css">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    
+</head>
+<body>
+    <div class="center">
+        <h1>Refine your voice</h1>
+        <form method="post" action="/post/<%=post._id%>/edit?_method=Patch">
+
+    <textarea name="content" rows="10" cols="30"><%=post.content%>
+    </textarea>
+    <br>
+    <br>
+    <button>submit</button>
+    </form>
+
+    </div>
+    
+    
+</body>
+</html>

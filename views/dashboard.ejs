@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/dashboard.css">
+    <style></style>
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <h1 class="logo">Speakup</h1>
+        </div>
+
+        <div class="right">
+            <details>
+                <summary>
+                    <img class="userimg" src="/user.png" alt="User">
+
+                </summary>
+                <div class="menu-options">
+                    <div class="menu-option">
+
+                        <span><a class="menu-anchor" href="/profile">Profile</a></span>
+                    </div>
+                    <div class="menu-option">
+
+                        <span><a class="menu-anchor" href="/new">create post</a></span>
+                    </div>
+                    <div class="menu-option">
+
+                        <span><a class="menu-anchor" href="/logout">Logout</a></span>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </nav>
+    <div class="top">
+        <h1>The People's Voice</h1>
+    </div>
+    <div class="posts">
+
+        <% for(post of posts){ %>
+            <div class="post">
+                <div class="upper">
+                <div class="top-section">
+                    <div class="top-left">
+                        <h2 class="user">@<%= post.username%>
+                        </h2>
+
+                    </div>
+                    <div class="top-right">
+                        <h5 class="date">Posted on:<%=post.date.toString().split(" ").slice(0,4).join(" ")%> <br>
+                            <%= post.date.toString().split(" ")[4]%>
+                            
+                        </h5>
+                    </div>
+                </div>
+                <hr>
+                <hr>
+                </div>
+
+                <div class="content">
+                    <h4>
+                        <%= post.content%>
+                    </h4>
+                </div>
+                <div class="bottom-section">
+                    <a class="userbtn" href="http://localhost:3000/post/<%=post._id%>">View Voice</a>
+                </div>
+
+            </div>
+
+            <%}%>
+
+
+
+
+
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuOptions = document.querySelector('.menu-options');
+            if (menuOptions) {
+                menuOptions.addEventListener('click', function (e) {
+                    if (e.target.closest('.menu-option')) {
+                        const option = e.target.closest('.menu-option').textContent.trim();
+                        if (option === 'Profile') {
+                            // Add your profile action here
+                            console.log('Profile clicked');
+                        } else if (option === 'Logout') {
+                            // Add your logout action here
+                            console.log('Logout clicked');
+                        }
+                    }
+                });
+            }
+        });
+        const userimg = document.querySelector(".userimg");
+        userimg.addEventListener('dblclick', () => {
+            window.location.href = '/profile'
+        })
+    </script>
+</body>
+
+</html>
