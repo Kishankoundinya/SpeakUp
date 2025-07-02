@@ -16,7 +16,7 @@
         </div>
 
         <div class="right">
-            <details>
+             <details class="popup-menu">
                 <summary>
                     <img class="userimg" src="/user.png" alt="User">
 
@@ -46,21 +46,25 @@
         <% for(post of posts){ %>
             <div class="post">
                 <div class="upper">
-                <div class="top-section">
-                    <div class="top-left">
-                        <h2 class="user">@<%= post.username%>
-                        </h2>
+                    <div class="top-section">
+                        <div class="top-left">
+                            <h2 class="user">@<%= post.username%>
+                            </h2>
 
+                        </div>
+                        <div class="top-right">
+                            <h5 class="date">
+                                Posted on: <br>
+                                <%= new Date(post.date).toLocaleDateString('en-US', { day: '2-digit' , month: 'short' ,
+                                    year: 'numeric' }) %>
+
+                                    <%= new Date(post.date).toLocaleTimeString('en-US', { hour: 'numeric' ,
+                                        minute: '2-digit' , hour12: true }) %>
+                            </h5>
+                        </div>
                     </div>
-                    <div class="top-right">
-                        <h5 class="date">Posted on:<%=post.date.toString().split(" ").slice(0,4).join(" ")%> <br>
-                            <%= post.date.toString().split(" ")[4]%>
-                            
-                        </h5>
-                    </div>
-                </div>
-                <hr>
-                <hr>
+                    <hr>
+                    <hr>
                 </div>
 
                 <div class="content">
@@ -68,9 +72,9 @@
                         <%= post.content%>
                     </h4>
                 </div>
-                <div class="bottom-section">
-                    <a class="userbtn" href="/post/<%=post._id%>">View Voice</a>
-                </div>
+                    <div class="bottom-section">
+                        <a class="userbtn" href="/post/<%=post._id%>">View Voice</a>
+                    </div>
 
             </div>
 
@@ -83,7 +87,21 @@
     </div>
 
     <script>
+        document.addEventListener("click", (event) => {
+            document.querySelectorAll(".popup-menu[open]").forEach((menu) => {
+                if (!menu.contains(event.target)) {
+                    menu.removeAttribute("open");
+                }
+            });
+        });
+         document.querySelectorAll(".popup-menu > summary").forEach((summary) => {
+            summary.addEventListener("click", (event) => {
+                event.stopPropagation();
+            });
+        });
 
+      
+        //////////////////////////////
         document.addEventListener('DOMContentLoaded', function () {
             const menuOptions = document.querySelector('.menu-options');
             if (menuOptions) {

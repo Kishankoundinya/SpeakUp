@@ -1,27 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit voices</title>
     <link rel="stylesheet" href="/edit.css">
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
-    
-</head>
-<body>
-    <div class="center">
-        <h1>Refine your voice</h1>
-        <form method="post" action="/post/<%=post._id%>/edit?_method=Patch">
 
-    <textarea name="content" rows="10" cols="30"><%=post.content%>
-    </textarea>
-    <br>
-    <br>
-    <button>submit</button>
-    </form>
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <h1 class="logo">Speakup</h1>
+        </div>
+
+        <div class="right">
+            <details class="popup-menu">
+                <summary>
+                    <img class="userimg" src="/user.png" alt="User">
+
+                </summary>
+                <div class="menu-options">
+                    <div class="menu-option">
+
+                        <span><a class="menu-anchor" href="/profile">Profile</a></span>
+                    </div>
+                    <div class="menu-option">
+
+                        <span><a class="menu-anchor" href="/new">create post</a></span>
+                    </div>
+                    <div class="menu-option">
+
+                        <span><a class="menu-anchor" href="/logout">Logout</a></span>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </nav>
+    <div class="top">
+        <div class="top-left">
+            <h1 class="edit-heading">Refine your voice</h1>
+        </div>
+        <div class="top-right">
+            <img class="close-icon" src="/close.png" alt="">
+        </div>
+
 
     </div>
-    
-    
+    <div class="middle-section">
+        <div class="center">
+
+            <form method="post" action="/post/<%=post._id%>/edit?_method=Patch">
+
+                <textarea name="content" rows="10" cols="30"><%=post.content%>
+    </textarea>
+
+
+                <button>submit</button>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+document.addEventListener("click", (event) => {
+            document.querySelectorAll(".popup-menu[open]").forEach((menu) => {
+                if (!menu.contains(event.target)) {
+                    menu.removeAttribute("open");
+                }
+            });
+        });
+         document.querySelectorAll(".popup-menu > summary").forEach((summary) => {
+            summary.addEventListener("click", (event) => {
+                event.stopPropagation();
+            });
+        });
+
+        let closebtn = document.querySelector(".close-icon");
+        closebtn.addEventListener("click", goback);
+        function goback() {
+            window.history.back();
+        }
+    </script>
 </body>
+
 </html>

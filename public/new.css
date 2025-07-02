@@ -1,18 +1,21 @@
 body {
     background-color: #3d3d3d;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     height: 100vh;
     flex-direction: column;
     color: aliceblue;
+  background-image: url(bgother.png);
+  background-size: 100vw 100vh; 
+  background-repeat: repeat;
 
 }
 
 .center {
 
-    width: 50vw;
-    height: 80vh;
+    width: 73vw;
+    height: 50vh;
     background: rgba(247, 245, 245, 0.229);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -25,16 +28,36 @@ body {
     
 
 }
-h2{
+.top{
     margin: 10px;
-     background: rgba(247, 245, 245, 0.229);
+      background: rgba(247, 245, 245, 0.229);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 20px;
     color: white;
-    text-align: center;
+    width: 73vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30PX;
+}
+.heading{
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.close{
+    width: 10%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+}
+.close-icon{
+      height: 45px;
 }
 input{
     height: 2rem;
@@ -48,8 +71,16 @@ textarea{
     
      padding: 10px;
      margin: 0;
-     width: 80%;
+     width: 95%;
+     height: 100%;
+     
 
+}
+.input-area{
+    height: 40vh;
+}
+form{
+    height: 100%;
 }
 h3{
      margin: 10px;
@@ -68,10 +99,132 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
-@media (max-width: 460px) {
-h2{
-     font-size: 1rem;
+.submit-btn{
+    width: 98%;
+    background-color: rgb(60, 138, 255);
 }
 
+
+
+nav {
+    width: 74vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    text-align: left;
+    background-color: #00000044;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
 }
+
+.left {
+    width: 50%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.userimg {
+    height: 40px;
+    position: sticky;
+}
+
+/* Additional styles for the dropdown menu */
+details {
+    position: relative;
+    display: inline-block;
+}
+
+details summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-options {
+    position: absolute;
+    right: 0;
+    background: rgba(133, 133, 133, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    margin-top: 30px;
+    overflow: hidden;
+    z-index: 100;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+.menu-option {
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    transition: background-color 0.2s;
+    justify-content: center;
+}
+
+
+.menu-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-option:first-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-option i {
+    margin-right: 10px;
+}
+.menu-anchor{
+    text-decoration: none;
+    color: aliceblue;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .close-icon{
+        display: none;
+    }
+   
+    .heading{
+        width: 99%;
+         justify-content: center;
+    }
+    .close{
+        width: 1%;
+    }
+    
+}
+@media (max-width: 570px) {
+    .new-heading{
+        font-size: large;
+    }
+    
+}
+ @media(max-width:768px){
+    body{
+    background-image: url(bg\ mobile.png);
+         background-size: 100vw 100vh; 
+  background-repeat: repeat;
+    }
+ }

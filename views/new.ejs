@@ -8,25 +8,63 @@
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
 </head>
 <body>
-    
+    <nav>
+        <div class="left">
+            <h1 class="logo">Speakup</h1>
+        </div>
+
+        <div class="right">
+            <details class="popup-menu">
+                <summary>
+                    <img class="userimg" src="/user.png" alt="User">
+                </summary>
+                <div class="menu-options">
+                    <div class="menu-option">
+                        <span><a class="menu-anchor" href="/new">Create Post</a></span>
+                    </div>
+                    <div class="menu-option">
+                        <span><a class="menu-anchor" href="/dashboard">Dashboard</a></span>
+                    </div>
+                    <div class="menu-option">
+                        <span><a class="menu-anchor" href="/logout">Logout</a></span>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </nav>
+    <div class="top">
+        <div class="heading">
+<h2 class="new-heading">Raise your voice. Make it count</h2>
+        </div>
+        <div class="close">
+            <img class="close-icon" src="/close.png" alt="">
+        </div>
+       
+    </div>
+     
     <div class="center">
-        <h2>Raise your voice. Make it count</h2>
+       
         
          <form  method="post" action="/new">
-            <!-- <h3>Enter Your Username</h3>
-        <input type="text" name="username" placeholder="silent_wave92">
-        <br>
-        <br> -->
-        <h3>Put Your Voice Into Words</h3>
+            <div class="input-area">
         <textarea rows="10" cols="30"  type="text" name="content" placeholder="This is my voice"></textarea>
-        <br>
+
+            </div>
+            <br>
+        
         <div class="btn">
-        <button>Submit</button>
+        <button class="submit-btn">Submit</button>
         </div>
         
     </form>
     </div>
     
-    
+        <script>
+            let closebtn = document.querySelector(".close-icon");
+        closebtn.addEventListener("click", goback);
+        function goback() {
+            window.history.back();
+        }
+        </script>
 </body>
 </html>
